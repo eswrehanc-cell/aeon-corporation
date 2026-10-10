@@ -1,0 +1,599 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AEON Corporation | Chemical & Pharma Solutions</title>
+<meta name="description" content="Aeon Corporation India provides specialized chemical distribution, pharmaceutical APIs, intermediates and finished formulations.">
+<style>
+:root {
+  --teal: #087c80;
+  --deep: #075458;
+  --green: #77b82a;
+  --pink: #b51d69;
+  --ink: #25383b;
+  --muted: #69777b;
+  --light: #f3f6f6;
+  --white: #fff;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; scroll-padding-top:85px; }
+body {
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--ink); background:#fff; line-height:1.7;
+  overflow-x:hidden;
+}
+a { color:inherit; text-decoration:none; }
+button,input,textarea { font:inherit; }
+.container { width:min(1160px,90%); margin:auto; }
+section { padding:95px 0; }
+.section-tag {
+  display:inline-block; color:var(--teal); font-size:12px;
+  font-weight:800; letter-spacing:3px; text-transform:uppercase;
+  margin-bottom:12px;
+}
+.section-title {
+  font-size:clamp(30px,4vw,46px); line-height:1.2;
+  color:var(--deep); margin-bottom:18px; letter-spacing:-1px;
+}
+.section-desc { color:var(--muted); max-width:720px; }
+.center { text-align:center; }
+.center .section-desc { margin:0 auto; }
+header {
+  height:84px; position:sticky; top:0; z-index:1000;
+  background:rgba(255,255,255,.94); backdrop-filter:blur(14px);
+  border-bottom:1px solid #e7eded;
+}
+.nav {
+  height:100%; display:flex; align-items:center;
+  justify-content:space-between; gap:24px;
+}
+.brand { display:flex; align-items:center; gap:10px; }
+.brand img { width:62px; height:58px; object-fit:contain; }
+.brand-name { color:var(--deep); font-size:19px; font-weight:900; line-height:1.1; }
+.brand-name small { display:block; font-size:10px; letter-spacing:2px; margin-top:5px; color:var(--muted); }
+.nav-links { display:flex; align-items:center; gap:25px; }
+.nav-links a { font-size:13px; font-weight:700; transition:color .25s; }
+.nav-links a:hover { color:var(--teal); }
+.btn {
+  display:inline-flex; justify-content:center; align-items:center;
+  gap:8px; padding:13px 22px; border-radius:5px;
+  border:1px solid var(--teal); background:var(--teal); color:white;
+  font-size:13px; font-weight:800; cursor:pointer;
+  transition:transform .25s,background .25s,box-shadow .25s;
+}
+.btn:hover { background:var(--deep); transform:translateY(-3px); box-shadow:0 10px 24px #07545825; }
+.btn-outline { background:transparent; color:var(--deep); }
+.btn-outline:hover { color:white; }
+.menu-btn { display:none; border:0; background:none; font-size:28px; cursor:pointer; color:var(--deep); }
+.hero {
+  min-height:650px; display:flex; align-items:center; position:relative;
+  background:linear-gradient(115deg,#f4f7f7 0%,#fff 62%,#e7f2f0 100%);
+  overflow:hidden; padding:80px 0;
+}
+.hero:before {
+  content:""; position:absolute; width:500px; height:500px;
+  right:-180px; top:30px; border:1px solid #087c8018;
+  border-radius:50%; box-shadow:0 0 0 55px #087c8008,0 0 0 110px #087c8005;
+  animation:float 8s ease-in-out infinite;
+}
+.hero-grid { display:grid; grid-template-columns:1.15fr .85fr; gap:55px; align-items:center; position:relative; z-index:1; }
+.eyebrow { color:var(--teal); font-size:12px; letter-spacing:3px; font-weight:900; margin-bottom:22px; }
+.hero h1 { font-size:clamp(54px,8vw,100px); color:var(--deep); line-height:.98; letter-spacing:-5px; margin-bottom:24px; }
+.hero h1 span { color:var(--teal); }
+.hero h2 { font-size:clamp(20px,2.4vw,29px); line-height:1.35; max-width:590px; margin-bottom:20px; }
+.hero p { max-width:590px; color:var(--muted); margin-bottom:30px; }
+.hero-actions { display:flex; flex-wrap:wrap; gap:12px; }
+.hero-visual { display:flex; justify-content:center; align-items:center; min-height:380px; }
+.logo-card {
+  background:#fff; padding:32px; border-radius:18px; width:100%;
+  max-width:420px; text-align:center; box-shadow:0 25px 80px #173d4014;
+  border:1px solid #e6eeee; animation:float 6s ease-in-out infinite;
+}
+.logo-card img { width:100%; max-width:360px; height:auto; object-fit:contain; }
+.logo-card p { color:var(--muted); font-size:13px; margin:18px 0 0; }
+.trust-strip { border-top:1px solid #e5eeee; border-bottom:1px solid #e5eeee; background:#fff; }
+.trust-grid { display:grid; grid-template-columns:repeat(3,1fr); }
+.trust-item { padding:26px 15px; text-align:center; border-right:1px solid #e5eeee; }
+.trust-item:last-child { border-right:0; }
+.trust-item strong { color:var(--deep); display:block; font-size:16px; }
+.trust-item span { color:var(--muted); font-size:12px; }
+.about-grid { display:grid; grid-template-columns:1fr 1fr; gap:65px; align-items:center; }
+.about-art {
+  min-height:390px; border-radius:16px; padding:35px;
+  background:linear-gradient(140deg,#e1f0ed,#f4f7f7);
+  display:flex; flex-direction:column; justify-content:space-between; overflow:hidden; position:relative;
+}
+.about-art:after {
+  content:"AEON"; font-weight:900; font-size:clamp(65px,10vw,130px);
+  color:#087c800d; position:absolute; right:-10px; bottom:45px;
+}
+.art-label { color:var(--teal); letter-spacing:3px; font-size:12px; font-weight:900; }
+.art-card { z-index:1; background:#fff; padding:23px; border-radius:12px; width:min(300px,100%); box-shadow:0 10px 35px #173d4010; }
+.art-card strong { display:block; color:var(--deep); font-size:20px; margin-bottom:6px; }
+.art-card p { font-size:13px; color:var(--muted); }
+.check-list { list-style:none; margin:25px 0 30px; }
+.check-list li { margin:12px 0; display:flex; gap:12px; color:#46575a; }
+.check-list li:before { content:"✓"; color:var(--green); font-weight:900; }
+.light { background:var(--light); }
+.cards { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:42px; }
+.card {
+  background:#fff; padding:30px; border:1px solid #e5eeee; border-radius:12px;
+  transition:transform .3s,box-shadow .3s,border-color .3s;
+}
+.card:hover { transform:translateY(-8px); box-shadow:0 20px 45px #173d4012; border-color:#b8d8d5; }
+.card-icon {
+  width:54px; height:54px; display:grid; place-items:center; border-radius:12px;
+  background:#e5f3f0; color:var(--teal); font-size:25px; margin-bottom:22px;
+}
+.card h3 { color:var(--deep); font-size:20px; line-height:1.35; margin-bottom:12px; }
+.card p { color:var(--muted); font-size:14px; }
+.card a { display:inline-block; color:var(--teal); font-weight:800; font-size:13px; margin-top:18px; }
+.operations { display:grid; grid-template-columns:repeat(3,1fr); gap:25px; margin-top:42px; }
+.operation { padding:28px 0; border-top:3px solid var(--teal); }
+.operation .number { font-size:40px; font-weight:900; color:#d6e9e7; line-height:1.2; }
+.operation h3 { color:var(--deep); margin:16px 0 8px; font-size:21px; }
+.operation p { color:var(--muted); font-size:14px; }
+.product-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:42px; }
+.product {
+  border:1px solid #e3ebeb; border-radius:12px; overflow:hidden;
+  background:#fff; transition:transform .3s,box-shadow .3s;
+}
+.product:hover { transform:translateY(-6px); box-shadow:0 18px 40px #173d4012; }
+.product-top { height:9px; background:linear-gradient(90deg,var(--teal),var(--green),var(--pink)); }
+.product-body { padding:27px; }
+.product h3 { color:var(--deep); margin-bottom:12px; font-size:20px; }
+.product p { color:var(--muted); font-size:14px; }
+.product ul { list-style:none; margin-top:18px; }
+.product li { font-size:13px; color:#506266; padding:7px 0; border-bottom:1px solid #eef2f2; }
+.product li:before { content:"• "; color:var(--green); font-weight:bold; }
+.cta-band { background:var(--deep); color:#fff; padding:58px 0; }
+.cta-inner { display:flex; align-items:center; justify-content:space-between; gap:25px; }
+.cta-band h2 { font-size:clamp(25px,4vw,38px); line-height:1.25; margin-bottom:8px; }
+.cta-band p { color:#d1e5e4; font-size:14px; }
+.cta-band .btn { background:white; color:var(--deep); border-color:white; flex-shrink:0; }
+.cta-band .btn:hover { background:#e7f2f0; }
+.pharma-list { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:28px; }
+.pharma-item { background:#fff; border:1px solid #e5eeee; padding:15px; border-radius:8px; color:var(--deep); font-size:13px; font-weight:700; }
+.contact-grid { display:grid; grid-template-columns:.9fr 1.1fr; gap:40px; margin-top:40px; }
+.contact-info { background:var(--deep); color:#fff; border-radius:14px; padding:32px; }
+.contact-info h3 { font-size:24px; margin-bottom:20px; }
+.contact-row { margin:22px 0; }
+.contact-row strong { display:block; color:#bde5dd; font-size:12px; letter-spacing:1px; text-transform:uppercase; margin-bottom:4px; }
+.contact-row a,.contact-row p { color:#fff; font-size:14px; overflow-wrap:anywhere; }
+.contact-form { padding:30px; border:1px solid #e4ecec; border-radius:14px; }
+.contact-form h3 { color:var(--deep); font-size:24px; margin-bottom:18px; }
+.field { margin-bottom:17px; }
+.field label { display:block; font-size:13px; font-weight:700; margin-bottom:7px; }
+.field input,.field textarea { width:100%; border:1px solid #d8e3e3; padding:13px; border-radius:6px; outline:none; background:#fbfdfd; }
+.field input:focus,.field textarea:focus { border-color:var(--teal); box-shadow:0 0 0 3px #087c8012; }
+.field textarea { min-height:120px; resize:vertical; }
+.form-note { color:var(--muted); font-size:12px; margin-top:12px; }
+footer { background:#122f32; color:#fff; padding:35px 0; }
+.footer-inner { display:flex; justify-content:space-between; align-items:center; gap:25px; flex-wrap:wrap; }
+.footer-brand { font-size:20px; font-weight:900; }
+.footer-brand span { color:#77c6bd; }
+footer p { color:#c1d3d2; font-size:12px; }
+.footer-links { display:flex; gap:18px; flex-wrap:wrap; font-size:12px; }
+.footer-links a:hover { color:#77c6bd; }
+.reveal { opacity:0; transform:translateY(25px); transition:opacity .7s ease,transform .7s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+@keyframes float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-12px); } }
+@media (prefers-reduced-motion:reduce) {
+  *,*:before,*:after { animation:none!important; transition:none!important; scroll-behavior:auto!important; }
+  .reveal { opacity:1; transform:none; }
+}
+@media(max-width:900px) {
+  .nav-links { gap:14px; }
+  .nav-links a { font-size:12px; }
+  .nav-cta { display:none; }
+  .hero-grid,.about-grid,.contact-grid { grid-template-columns:1fr; }
+  .hero { min-height:auto; }
+  .hero-visual { min-height:280px; }
+  .about-grid { gap:35px; }
+  .cards,.product-grid { grid-template-columns:repeat(2,1fr); }
+}
+@media(max-width:650px) {
+  header { height:74px; }
+  .brand img { width:48px; height:48px; }
+  .brand-name { font-size:16px; }
+  .menu-btn { display:block; }
+  .nav-links {
+    display:none; position:absolute; top:74px; left:0; right:0;
+    background:white; padding:20px 5%; border-bottom:1px solid #e4ecec;
+    flex-direction:column; align-items:flex-start; gap:17px;
+  }
+  .nav-links.open { display:flex; }
+  .hero { padding:65px 0; }
+  .hero h1 { letter-spacing:-3px; }
+  section { padding:70px 0; }
+  .trust-grid { grid-template-columns:1fr; }
+  .trust-item { border-right:0; border-bottom:1px solid #e5eeee; }
+  .cards,.product-grid,.operations,.pharma-list { grid-template-columns:1fr; }
+  .cta-inner { flex-direction:column; align-items:flex-start; }
+  .logo-card { padding:20px; }
+  .contact-form,.contact-info { padding:23px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="#home" aria-label="Aeon Corporation home">
+      <img src="logo.png" alt="AEON Corporation original logo">
+      <div class="brand-name">AEON CORPORATION<small>CHEMICAL & PHARMA SOLUTIONS</small></div>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#operations">Operations</a>
+      <a href="#services">Services</a>
+      <a href="#products">Pharma</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn nav-cta" href="#contact">Let's Connect ↗</a>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div class="reveal">
+      <div class="eyebrow">YOUR TRUSTED DISTRIBUTION PARTNER</div>
+      <h1>AEON<span>.</span></h1>
+      <h2>Advanced Chemicals. Reliable Supply. Stronger Partnerships.</h2>
+      <p>
+        Aeon Corporation, India, is part of the Zeon Group Companies.
+        We specialize in importing and distributing specialized chemicals,
+        pharmaceutical APIs, intermediates and finished formulations.
+      </p>
+      <div class="hero-actions">
+        <a class="btn" href="#services">Explore Our Services ↗</a>
+        <a class="btn btn-outline" href="#contact">Contact Our Team</a>
+      </div>
+    </div>
+    <div class="hero-visual reveal">
+      <div class="logo-card">
+        <img src="logo.png" alt="Aeon Corporation logo">
+        <p>Connecting global sourcing with dependable supply solutions across India.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="trust-strip">
+  <div class="container trust-grid">
+    <div class="trust-item"><strong>Global Sourcing</strong><span>Products from trusted international suppliers</span></div>
+    <div class="trust-item"><strong>Technical Support</strong><span>Application guidance and customer assistance</span></div>
+    <div class="trust-item"><strong>Pan-India Distribution</strong><span>Supply and logistics support across India</span></div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="container about-grid">
+    <div class="about-art reveal">
+      <div class="art-label">WHO WE ARE</div>
+      <div class="art-card">
+        <strong>Solutions built around your needs.</strong>
+        <p>Specialized chemical distribution and pharmaceutical supply expertise.</p>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="section-tag">About Aeon</div>
+      <h2 class="section-title">Bringing Global Quality Closer to Indian Industry</h2>
+      <p class="section-desc">
+        We focus on making quality specialized chemicals and pharmaceutical
+        materials accessible to customers across India. As an import and
+        distribution company, we connect trusted suppliers with businesses
+        that need dependable products and responsive support.
+      </p>
+      <ul class="check-list">
+        <li>Specialized chemical imports and distribution</li>
+        <li>Application-based cleaning solutions for precision industries</li>
+        <li>Pharmaceutical APIs and intermediates</li>
+        <li>Finished formulations for local and export markets</li>
+        <li>Technical assistance and customer-focused service</li>
+      </ul>
+      <a class="btn" href="https://aeoncorp.in/about" target="_blank" rel="noopener">Learn More About Us ↗</a>
+    </div>
+  </div>
+</section>
+
+<section class="light" id="operations">
+  <div class="container">
+    <div class="center reveal">
+      <div class="section-tag">How We Work</div>
+      <h2 class="section-title">Our Operations</h2>
+      <p class="section-desc">A coordinated supply process designed to support quality, safe handling and dependable delivery.</p>
+    </div>
+    <div class="operations">
+      <article class="operation reveal">
+        <div class="number">01</div>
+        <h3>Global Sourcing</h3>
+        <p>We source products from trusted suppliers, including partners across Asia and Europe, with attention to quality and suitability for customer requirements.</p>
+      </article>
+      <article class="operation reveal">
+        <div class="number">02</div>
+        <h3>Stock Point & Storage</h3>
+        <p>Our Mumbai-area warehouse supports organized inventory management and convenient access to major western ports and transport networks.</p>
+      </article>
+      <article class="operation reveal">
+        <div class="number">03</div>
+        <h3>Distribution</h3>
+        <p>We coordinate supply and logistics to help customers receive the materials they need across India, with a focus on safety and reliability.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <div class="center reveal">
+      <div class="section-tag">What We Offer</div>
+      <h2 class="section-title">Our Services Overview</h2>
+      <p class="section-desc">Specialized solutions for industrial applications, pharmaceutical businesses and custom sourcing requirements.</p>
+    </div>
+    <div class="cards">
+      <article class="card reveal">
+        <div class="card-icon">◈</div>
+        <h3>Application-Based Chemicals</h3>
+        <p>Specialized cleaning chemicals for ophthalmic tools, optics, precision cutting tools, watch components, jewelry and luxury articles.</p>
+        <a href="https://aeoncorp.in/products" target="_blank" rel="noopener">Explore Chemicals ↗</a>
+      </article>
+      <article class="card reveal">
+        <div class="card-icon">✚</div>
+        <h3>Pharma APIs & Intermediates</h3>
+        <p>Pharmaceutical API manufacturing on a loan-license basis and imported intermediates to support pharmaceutical production needs.</p>
+        <a href="https://aeoncorp.in/pharma-apis-and-intermediates" target="_blank" rel="noopener">Explore Pharma ↗</a>
+      </article>
+      <article class="card reveal">
+        <div class="card-icon">▤</div>
+        <h3>Finished Formulations</h3>
+        <p>Pharmaceutical formulations in various dosage forms, produced through manufacturing partners for local and export markets.</p>
+        <a href="https://aeoncorp.in/pharma-finished-formulation" target="_blank" rel="noopener">Learn More ↗</a>
+      </article>
+      <article class="card reveal">
+        <div class="card-icon">⚙</div>
+        <h3>Technical Services</h3>
+        <p>Application guidance and technical assistance to help customers evaluate cleaning processes and select suitable chemical solutions.</p>
+        <a href="#contact">Discuss Your Needs ↗</a>
+      </article>
+      <article class="card reveal">
+        <div class="card-icon">⇄</div>
+        <h3>Chemical Indenting</h3>
+        <p>Procurement support to source suitable chemicals through supplier networks in China, Japan, Europe and other markets.</p>
+        <a href="#contact">Enquire Now ↗</a>
+      </article>
+      <article class="card reveal">
+        <div class="card-icon">▦</div>
+        <h3>Inventory Storage Solutions</h3>
+        <p>Warehouse and inventory support with access to port connections and local transport networks for distribution requirements.</p>
+        <a href="#contact">Talk to Our Team ↗</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="light" id="products">
+  <div class="container">
+    <div class="center reveal">
+      <div class="section-tag">Pharmaceutical Portfolio</div>
+      <h2 class="section-title">Pharma APIs & Intermediates</h2>
+      <p class="section-desc">Explore selected products listed in the company's published pharmaceutical portfolio. Please contact Aeon for current availability, specifications and commercial details.</p>
+    </div>
+    <div class="product-grid">
+      <article class="product reveal">
+        <div class="product-top"></div>
+        <div class="product-body">
+          <h3>Manufacturing Products</h3>
+          <p>Selected products listed in the published portfolio.</p>
+          <ul>
+            <li>Ketoconazole USP</li>
+            <li>Telmisartan USP</li>
+            <li>Bromhexine HCl BP</li>
+            <li>Levosulpiride INH</li>
+            <li>Moxifloxacin USP</li>
+            <li>Timolol Maleate USP</li>
+            <li>Selenium Disulfide</li>
+          </ul>
+        </div>
+      </article>
+      <article class="product reveal">
+        <div class="product-top"></div>
+        <div class="product-body">
+          <h3>Upcoming Commercial Products</h3>
+          <p>Products identified as upcoming on the published portfolio page.</p>
+          <ul>
+            <li>Silodosin</li>
+            <li>Nebivolol</li>
+            <li>Permethrin</li>
+            <li>Minoxidil USP</li>
+            <li>Cetyl Pyridinium Chloride</li>
+          </ul>
+        </div>
+      </article>
+      <article class="product reveal">
+        <div class="product-top"></div>
+        <div class="product-body">
+          <h3>Finished Formulations</h3>
+          <p>Formulations for local and export market requirements, subject to product-specific availability and applicable requirements.</p>
+          <ul>
+            <li>Tablets</li>
+            <li>Capsules</li>
+            <li>Syrups</li>
+            <li>Injectables</li>
+            <li>Other dosage forms</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+    <p class="form-note" style="text-align:center;margin-top:24px">Product names are provided for business information only. Confirm current availability and specifications directly with the company.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="center reveal">
+      <div class="section-tag">Our Commitment</div>
+      <h2 class="section-title">A Partnership Focused on Quality</h2>
+      <p class="section-desc">We aim to combine dependable sourcing, careful handling and responsive support to build long-term business relationships.</p>
+    </div>
+    <div class="cards">
+      <article class="card reveal">
+        <div class="card-icon">✓</div>
+        <h3>Quality Mindset</h3>
+        <p>We emphasize product quality, supplier evaluation and appropriate handling throughout the supply process.</p>
+      </article>
+      <article class="card reveal">
+        <div class="card-icon">◎</div>
+        <h3>Customer Support</h3>
+        <p>We work to understand application requirements and help customers navigate product and sourcing enquiries.</p>
+      </article>
+      <article class="card reveal">
+        <div class="card-icon">↗</div>
+        <h3>Reliable Supply</h3>
+        <p>Our sourcing and logistics approach is designed to support practical, efficient distribution for customers across India.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="container cta-inner reveal">
+    <div>
+      <h2>Looking for a Chemical or Pharma Supply Partner?</h2>
+      <p>Share your requirements with our team and discuss suitable solutions.</p>
+    </div>
+    <a class="btn" href="#contact">Send an Enquiry ↗</a>
+  </div>
+</div>
+
+<section id="contact">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag">Get in Touch</div>
+      <h2 class="section-title">Let's Discuss Your Requirements</h2>
+      <p class="section-desc">For chemical distribution, pharmaceutical products, sourcing or technical enquiries, contact our team.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <h3>Contact Information</h3>
+        <div class="contact-row">
+          <strong>General Enquiries</strong>
+          <a href="mailto:info@aeoncorp.in">info@aeoncorp.in</a><br>
+          <a href="tel:+919834318627">+91-9834318627</a>
+        </div>
+        <div class="contact-row">
+          <strong>Pharma Enquiries</strong>
+          <a href="mailto:pharma@aeoncorp.in">pharma@aeoncorp.in</a><br>
+          <a href="tel:+919892053440">+91-9892053440</a>
+        </div>
+        <div class="contact-row">
+          <strong>Office Address</strong>
+          <p>Plot No. 126, Sector 25, Udyog Nagar, near Sadguru Hospital, Ghansoli, Navi Mumbai – 400701, India.</p>
+        </div>
+        <div class="contact-row">
+          <strong>Business Hours</strong>
+          <p>Monday to Saturday: 10:00 AM – 6:30 PM<br>Alternate Saturdays off</p>
+        </div>
+        <a class="btn" href="https://aeoncorp.in/contact" target="_blank" rel="noopener" style="background:white;color:var(--deep);border-color:white">Official Contact Page ↗</a>
+      </div>
+      <form class="contact-form reveal" id="contactForm">
+        <h3>Send an Enquiry</h3>
+        <div class="field">
+          <label for="name">Full Name</label>
+          <input id="name" name="name" required placeholder="Enter your name">
+        </div>
+        <div class="field">
+          <label for="email">Business Email</label>
+          <input id="email" name="email" type="email" required placeholder="you@company.com">
+        </div>
+        <div class="field">
+          <label for="company">Company Name (optional)</label>
+          <input id="company" name="company" placeholder="Your company">
+        </div>
+        <div class="field">
+          <label for="message">How can we help?</label>
+          <textarea id="message" name="message" required placeholder="Tell us about the product or service you need..."></textarea>
+        </div>
+        <button class="btn" type="submit">Prepare Email Enquiry ↗</button>
+        <p class="form-note">This form opens your email application with the enquiry prepared. It does not send or store your information on this website.</p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-brand">AEON <span>CORPORATION</span></div>
+      <p>Chemical distribution and pharmaceutical solutions.</p>
+    </div>
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#products">Pharma</a>
+      <a href="#contact">Contact</a>
+      <a href="https://aeoncorp.in/" target="_blank" rel="noopener">Original Website ↗</a>
+    </div>
+    <p>© <span id="year"></span> Aeon Corporation. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+  const isOpen = navLinks.classList.toggle("open");
+  menuBtn.setAttribute("aria-expanded", String(isOpen));
+  menuBtn.textContent = isOpen ? "✕" : "☰";
+});
+
+navLinks.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuBtn.setAttribute("aria-expanded", "false");
+    menuBtn.textContent = "☰";
+  });
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+document.getElementById("year").textContent = new Date().getFullYear();
+
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const company = document.getElementById("company").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  const subject = encodeURIComponent("Website Enquiry - " + name);
+  const body = encodeURIComponent(
+    "Name: " + name + "\n" +
+    "Email: " + email + "\n" +
+    "Company: " + (company || "Not provided") + "\n\n" +
+    "Enquiry:\n" + message
+  );
+
+  window.location.href =
+    "mailto:info@aeoncorp.in?subject=" + subject + "&body=" + body;
+});
+</script>
+</body>
+</html>
